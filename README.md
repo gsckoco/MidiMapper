@@ -10,6 +10,7 @@ Pretty simple; If you are using IntelliJ Idea open up Project Structure (```ctrl
 ![Add>JavaFX Application > From module 'MidiMapper'](https://i.gsck.co.uk/Huproahez.png)
 
 Congratulations you created an artifact! Next you need to go too the `Java FX` tab. Set the `Application class` too `co.uk.gsck.midi.mapper.Main`, skip a few of the inputs, you can fill them in if you wish, go down to the drop down window `Native bundle` and select the doofer you need, use `all` for all possible executable's too be made.
+As for anything else, you figure it out. I haven't a clue how to use anything else other than IntelliJ
 # Screenshots
 Soon. The program doesn't even allow you to do anything with the Midi inputs yet, give me a chance!
 # Contributing
