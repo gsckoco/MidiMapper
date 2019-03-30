@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.uk.gsck.midi.mapper.Controllers.Main">
    <children>
       <MenuBar layoutY="2.0" maxHeight="600.0" maxWidth="600.0" minHeight="25.0" minWidth="600.0" prefHeight="25.0" prefWidth="600.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
+          <Menu mnemonicParsing="false" text="File" />
+          <Menu mnemonicParsing="false" text="Edit" />
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="aboutButton" mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
@@ -31,15 +22,28 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Pane layoutX="14.0" layoutY="14.0" prefHeight="304.0" prefWidth="306.0">
+                        <Pane layoutX="14.0" layoutY="14.0" prefHeight="304.0" prefWidth="278.0">
                            <children>
                               <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="136.0" text="Device Settings">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="48.0" text="Input Device" />
-                              <ComboBox fx:id="deviceSelector" layoutX="89.0" layoutY="44.0" prefHeight="25.0" prefWidth="165.0" />
+                              <Label layoutX="14.0" layoutY="81.0" text="Output Device" />
+                              <ComboBox fx:id="outdeviceSelector" layoutX="98.0" layoutY="77.0" prefHeight="25.0" prefWidth="165.0" />
+                              <Label layoutX="14.0" layoutY="45.0" text="Input Device" />
+                              <ComboBox fx:id="indeviceSelector" layoutX="98.0" layoutY="41.0" prefHeight="25.0" prefWidth="165.0" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="304.0" layoutY="14.0" prefHeight="173.0" prefWidth="282.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="136.0" text="Device Settings">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="41.0" prefHeight="17.0" prefWidth="96.0" text="Last MIDI signal:" />
+                              <Label fx:id="lastMessage" layoutX="110.0" layoutY="41.0" prefHeight="17.0" prefWidth="96.0" text="none" />
                            </children>
                         </Pane>
                      </children></AnchorPane>
