@@ -6,7 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-public class Error {
+public class Popup {
     public static void error(String description, String stacktrace, boolean close) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("An error occurred!");
@@ -35,5 +35,12 @@ public class Error {
         if (close) {
             System.exit(0);
         }
+    }
+    public static void info(String title, String header, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

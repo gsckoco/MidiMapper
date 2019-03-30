@@ -21,7 +21,7 @@ public class MidiDeviceInfo {
     }
 
     public String toString() {
-        return this.info.getName();
+        return "[" + this.id + "] " + this.info.getName();
     }
 
     public MidiDevice getDevice() throws MidiUnavailableException {
