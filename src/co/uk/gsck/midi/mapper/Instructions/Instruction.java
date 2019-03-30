@@ -1,11 +1,12 @@
 package co.uk.gsck.midi.mapper.Instructions;
 
-abstract class Instruction {
+public interface Instruction {
 
-    private String instructionName = "";
+    String name = "";
+    byte status = 0x00;
+    byte note = 0x00;
+    byte velocity = 0x00;
 
-    public Instruction(String name, byte status, byte d1) {
-        this.instructionName = name;
-    }
+    void run();
 
 }
