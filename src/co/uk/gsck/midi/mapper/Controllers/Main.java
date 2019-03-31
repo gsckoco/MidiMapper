@@ -5,8 +5,6 @@ import co.uk.gsck.midi.mapper.Handlers.MidiDeviceInfo;
 import co.uk.gsck.midi.mapper.Handlers.Popup;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -67,16 +65,11 @@ public class Main {
             }
         }
 
-        aboutButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Popup.info("About","About the Program","MidiMapper  Copyright (C) 2019  Ben Johnston (gsckoco)\n" +
-                        "This program comes with ABSOLUTELY NO WARRANTY.\n" +
-                        "This is free software, and you are welcome to redistribute it\n" +
-                        "under certain conditions. If you would like to learn more goto:\n" +
-                        "https://github.com/gsckoco/MidiMapper/LICENSE.md");
-            }
-        });
+        aboutButton.setOnAction(event -> Popup.info("About","About the Program","MidiMapper  Copyright (C) 2019  Ben Johnston (gsckoco)\n" +
+                "This program comes with ABSOLUTELY NO WARRANTY.\n" +
+                "This is free software, and you are welcome to redistribute it\n" +
+                "under certain conditions. If you would like to learn more goto:\n" +
+                "https://github.com/gsckoco/MidiMapper/LICENSE.md"));
 
         indeviceSelector.setItems(inDevices);
         outdeviceSelector.setItems(outDevices);
@@ -85,6 +78,10 @@ public class Main {
                 try {
                     //MidiDevice oldDev = ((MidiDeviceInfo)oldVal).getDevice();
                     MidiDevice oldDev = (MidiSystem.getMidiDevice(infos[5]));
+                    if (oldDev.getTransmitter().getReceiver() != null) {
+                        oldDev.getTransmitter().getReceiver().close();
+                    }
+                    //oldDev.getTransmitter().setReceiver(null);
                     oldDev.close();
                 } catch (MidiUnavailableException e) {
                     Popup.error("Midi device is currently unavailable",e.toString(),true);
