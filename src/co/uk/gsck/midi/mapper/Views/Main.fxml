@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.uk.gsck.midi.mapper.Controllers.Main">
    <children>
       <MenuBar layoutY="2.0" maxHeight="600.0" maxWidth="600.0" minHeight="25.0" minWidth="600.0" prefHeight="25.0" prefWidth="600.0">
@@ -24,26 +34,26 @@
                      <children>
                         <Pane layoutX="14.0" layoutY="14.0" prefHeight="304.0" prefWidth="278.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="136.0" text="Device Settings">
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="202.0" text="Device Settings">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                               <Label layoutX="14.0" layoutY="81.0" text="Output Device" />
-                              <ComboBox fx:id="outdeviceSelector" layoutX="98.0" layoutY="77.0" prefHeight="25.0" prefWidth="165.0" />
+                              <ComboBox fx:id="outdeviceSelector" layoutX="108.0" layoutY="76.0" prefHeight="25.0" prefWidth="165.0" />
                               <Label layoutX="14.0" layoutY="45.0" text="Input Device" />
-                              <ComboBox fx:id="indeviceSelector" layoutX="98.0" layoutY="41.0" prefHeight="25.0" prefWidth="165.0" />
+                              <ComboBox fx:id="indeviceSelector" layoutX="108.0" layoutY="40.0" prefHeight="25.0" prefWidth="165.0" />
                            </children>
                         </Pane>
                         <Pane layoutX="304.0" layoutY="14.0" prefHeight="173.0" prefWidth="282.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="136.0" text="Device Settings">
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="253.0" text="Device Settings">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="14.0" layoutY="41.0" prefHeight="17.0" prefWidth="96.0" text="Last MIDI signal:" />
-                              <Label fx:id="lastMessage" layoutX="110.0" layoutY="41.0" prefHeight="17.0" prefWidth="96.0" text="none" />
+                              <Label layoutX="14.0" layoutY="41.0" prefHeight="17.0" prefWidth="113.0" text="Last MIDI signal:" />
+                              <Label fx:id="lastMessage" layoutX="133.0" layoutY="41.0" prefHeight="17.0" prefWidth="96.0" text="none" />
                            </children>
                         </Pane>
                      </children></AnchorPane>
@@ -58,6 +68,21 @@
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Scripting">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="scriptArea" accessibleRole="TEXT" blendMode="SRC_ATOP" depthTest="DISABLE" layoutX="14.0" layoutY="14.0" maxHeight="345.0" maxWidth="600.0" minHeight="233.0" minWidth="521.0" prefHeight="247.0" prefWidth="572.0" text="print(&quot;Hello World&quot;)">
+                           <font>
+                              <Font name="Monospaced Regular" size="13.0" />
+                           </font>
+                        </TextArea>
+                        <Button fx:id="scriptRun" layoutX="14.0" layoutY="274.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Run" />
+                        <Button fx:id="scriptClear" layoutX="80.0" layoutY="274.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Clear" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

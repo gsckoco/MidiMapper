@@ -1,15 +1,14 @@
 package co.uk.gsck.midi.mapper.Controllers;
 
+import co.uk.gsck.midi.mapper.Handlers.LuaHandler;
 import co.uk.gsck.midi.mapper.Handlers.MidiCallback;
 import co.uk.gsck.midi.mapper.Handlers.MidiDeviceInfo;
-import co.uk.gsck.midi.mapper.Handlers.Popup;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 import javax.sound.midi.MidiDevice;
 import javax.sound.midi.MidiSystem;
@@ -32,8 +31,15 @@ public class Main {
     private MenuItem aboutButton;
     @FXML
     private Label lastMessage;
+    @FXML
+    private Button scriptRun;
+    @FXML
+    private Button scriptClear;
+    @FXML
+    private TextArea scriptArea;
 
     private Transmitter transmitter;
+    private LuaHandler lua;
 
     public void log(String message) {
         logTextArea.setText( logTextArea.getText() + message + "\n" );
@@ -45,6 +51,7 @@ public class Main {
     }
 
     public void initialize() {
+        lua = new LuaHandler();
         logTextArea.setText("");
         MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
         log("Current devices plugged in are: ");
@@ -98,6 +105,12 @@ public class Main {
                 e.printStackTrace();
             }
 
+        });
+        scriptRun.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                lua.setLuaString(scriptArea.getText());
+                lua.runScript();
+            }
         });
     }
 }
