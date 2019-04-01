@@ -14,7 +14,7 @@ class MidiCallback : Receiver {
     override fun send(message: MidiMessage?, timeStamp: Long) {
         var bytes : ByteArray = message!!.message;
         System.out.println("${bytes[0]}, ${bytes[1]}, ${bytes[2]}")
-        message
+        //message
         Platform.runLater {
             main!!.setLastMIDIMessage("${bytes[0]}, ${bytes[1]}, ${bytes[2]}");
         }

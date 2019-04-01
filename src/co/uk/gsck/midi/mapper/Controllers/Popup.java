@@ -1,4 +1,4 @@
-package co.uk.gsck.midi.mapper.Handlers;
+package co.uk.gsck.midi.mapper.Controllers;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
